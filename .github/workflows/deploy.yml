@@ -16,7 +16,7 @@ jobs:
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ftp://45.132.157.19
+          server: 45.132.157.19
           username: u983503200.Grupo2703
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Esto sube todos los archivos del repositorio
