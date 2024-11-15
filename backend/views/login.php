@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Inicio de Sesión</h2>
-    <form action="/Backend/controllers/loginController.php" method="POST">
+    <form action="/Backend/controllers/login_co.php" method="POST">
         <label for="username">Usuario:</label>
         <input type="text" id="username" name="username" required>
         <br>
