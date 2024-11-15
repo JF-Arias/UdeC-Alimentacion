@@ -1,0 +1,27 @@
+name: Deploy to FTP
+
+# Este flujo se ejecutará cuando haya un push a la rama 'main' (o cualquier rama que elijas)
+on:
+  push:
+    branches:
+      - main  # O la rama que estés usando para producción
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest  # Puedes usar un contenedor de Ubuntu para ejecutar los comandos
+
+    steps:
+      # 1. Checkout del código de tu repositorio
+      - name: Checkout code
+        uses: actions/checkout@v2  # Obtiene tu código desde el repositorio de GitHub
+
+      # 2. Configuración del deploy FTP
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.1.0
+        with:
+          server: ftp://45.132.157.19   # Tu servidor FTP
+          username: u983503200.Grupo2703  # Tu usuario FTP
+          password: ${{ secrets.FTP_PASSWORD }}  # Contraseña de FTP (la guardamos como secreto)
+          local-dir: ./  # El directorio local que se va a subir (todo el repositorio)
+          server-dir: /G2  # El directorio en el servidor donde se debe subir el código
+
